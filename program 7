@@ -1,0 +1,32 @@
+alpha_chars="abcdefghijklmnopqrstuvwxyz"
+numbers=[0,1,2,3,4,5,6,7,8,9]
+special_chars="!@#$%^&*()_+~`\":;<>.|}{][\|]?"
+password=input()
+b=["alphalower","alphaupper","digit","special"]
+res=[]
+
+for i in password:
+    if i in alpha_chars:
+        res.append("alphalower")
+    elif i in alpha_chars.upper():
+        res.append("alphaupper")
+    elif i in numbers:
+        res.append("digit")
+    elif i in special_chars:
+        res.append("special")
+
+res=set(res)
+res=list(res)
+
+count=0
+for i in res:
+    if i in b:
+        count+=1
+
+if count == len(res):
+    if len(password) >= 6 or len(password) <= 16:
+        print("Valid Password")
+    else:
+        print("Invalid Password")
+else:
+    print("Invalid Password")
